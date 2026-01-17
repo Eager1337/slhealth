@@ -17,6 +17,15 @@ import MedicationReminders from "./pages/MedicationReminders";
 import HealthTips from "./pages/HealthTips";
 import Doctors from "./pages/Doctors";
 import More from "./pages/More";
+import Payment from "./pages/Payment";
+import SymptomChecker from "./pages/SymptomChecker";
+import CommunityEvents from "./pages/CommunityEvents";
+import PatientRecords from "./pages/PatientRecords";
+import HealthAnalytics from "./pages/HealthAnalytics";
+import FinancialAid from "./pages/FinancialAid";
+import Privacy from "./pages/Privacy";
+import LanguageSettings from "./pages/LanguageSettings";
+import OfflineAccess from "./pages/OfflineAccess";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -45,14 +54,15 @@ const App = () => (
           <Route path="/health-tips/:id" element={<HealthTips />} />
           <Route path="/doctors" element={<Doctors />} />
           <Route path="/more" element={<More />} />
-          <Route path="/symptom-checker" element={<More />} />
-          <Route path="/community-events" element={<More />} />
-          <Route path="/patient-records" element={<More />} />
-          <Route path="/privacy" element={<More />} />
-          <Route path="/language-settings" element={<More />} />
-          <Route path="/analytics" element={<More />} />
-          <Route path="/financial-aid" element={<More />} />
-          <Route path="/offline" element={<More />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/symptom-checker" element={<SymptomChecker />} />
+          <Route path="/community-events" element={<CommunityEvents />} />
+          <Route path="/patient-records" element={<PatientRecords />} />
+          <Route path="/analytics" element={<HealthAnalytics />} />
+          <Route path="/financial-aid" element={<FinancialAid />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/language-settings" element={<LanguageSettings />} />
+          <Route path="/offline" element={<OfflineAccess />} />
           <Route path="/about" element={<Index />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

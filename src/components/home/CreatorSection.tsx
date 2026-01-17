@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import creatorImage from "@/assets/creator-alusine.png";
+import creatorImage2 from "@/assets/creator-alusine-2.jpeg";
 
 const CreatorSection = () => {
   return (
@@ -13,12 +14,17 @@ const CreatorSection = () => {
       <div className="flex items-start gap-4">
         <motion.div
           whileHover={{ scale: 1.05 }}
-          className="relative"
+          className="relative flex gap-2"
         >
           <img
             src={creatorImage}
             alt="Alusine Gadrie Dumbuya"
-            className="w-20 h-20 rounded-full object-cover border-2 border-primary shadow-lg shadow-primary/30"
+            className="w-16 h-16 rounded-full object-cover border-2 border-primary shadow-lg shadow-primary/30"
+          />
+          <img
+            src={creatorImage2}
+            alt="Alusine Gadrie Dumbuya"
+            className="w-16 h-16 rounded-full object-cover border-2 border-secondary shadow-lg shadow-secondary/30"
           />
           <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
             <span className="text-xs">✓</span>

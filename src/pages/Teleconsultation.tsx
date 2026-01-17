@@ -204,15 +204,16 @@ const Teleconsultation = () => {
             <h2 className="text-lg font-semibold mb-4">Subscription Plans</h2>
             <div className="grid grid-cols-3 gap-3">
               {subscriptionPlans.map((plan) => (
-                <motion.div
-                  key={plan.name}
-                  whileHover={{ scale: 1.05 }}
-                  className="glow-card p-4 text-center cursor-pointer"
-                >
-                  <h3 className="font-bold text-primary text-sm">{plan.name}</h3>
-                  <p className="text-xs text-foreground font-semibold mt-1">{plan.price}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{plan.calls}</p>
-                </motion.div>
+                <Link key={plan.name} to={`/payment?amount=${plan.price.replace(/[^0-9]/g, '')}&service=${plan.name} Plan`}>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="glow-card p-4 text-center cursor-pointer"
+                  >
+                    <h3 className="font-bold text-primary text-sm">{plan.name}</h3>
+                    <p className="text-xs text-foreground font-semibold mt-1">{plan.price}</p>
+                    <p className="text-xs text-muted-foreground mt-1">{plan.calls}</p>
+                  </motion.div>
+                </Link>
               ))}
             </div>
           </section>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Star, Phone, Video, Calendar } from "lucide-react";
+import { Star, Video, Calendar, CreditCard } from "lucide-react";
 import Header from "@/components/layout/Header";
 import BottomNav from "@/components/layout/BottomNav";
 import { Button } from "@/components/ui/button";
@@ -10,10 +10,10 @@ import doctor3 from "@/assets/doctor-3.jpg";
 import doctor4 from "@/assets/doctor-4.jpg";
 
 const doctors = [
-  { id: 1, name: "Dr. Mohamed Kamara", specialty: "General Practitioner", rating: 4.9, experience: "15 years", image: doctor1, price: "Le 50,000" },
-  { id: 2, name: "Dr. Fatmata Sesay", specialty: "Pediatrician", rating: 4.8, experience: "12 years", image: doctor2, price: "Le 60,000" },
-  { id: 3, name: "Dr. Ibrahim Conteh", specialty: "Cardiologist", rating: 4.9, experience: "20 years", image: doctor3, price: "Le 80,000" },
-  { id: 4, name: "Dr. Aminata Koroma", specialty: "Gynecologist", rating: 4.7, experience: "10 years", image: doctor4, price: "Le 70,000" },
+  { id: 1, name: "Dr. Mohamed Kamara", specialty: "General Practitioner", rating: 4.9, experience: "15 years", image: doctor1, price: "50000", priceLabel: "Le 50,000" },
+  { id: 2, name: "Dr. Fatmata Sesay", specialty: "Pediatrician", rating: 4.8, experience: "12 years", image: doctor2, price: "60000", priceLabel: "Le 60,000" },
+  { id: 3, name: "Dr. Ibrahim Conteh", specialty: "Cardiologist", rating: 4.9, experience: "20 years", image: doctor3, price: "80000", priceLabel: "Le 80,000" },
+  { id: 4, name: "Dr. Aminata Koroma", specialty: "Gynecologist", rating: 4.7, experience: "10 years", image: doctor4, price: "70000", priceLabel: "Le 70,000" },
 ];
 
 const Doctors = () => {
@@ -36,12 +36,19 @@ const Doctors = () => {
                       <span className="text-sm">{doctor.rating}</span>
                       <span className="text-xs text-muted-foreground">• {doctor.experience}</span>
                     </div>
-                    <p className="text-sm font-semibold text-primary mt-1">{doctor.price}</p>
+                    <p className="text-sm font-semibold text-primary mt-1">{doctor.priceLabel}</p>
                   </div>
                 </div>
                 <div className="flex gap-2 mt-4">
-                  <Link to="/teleconsultation" className="flex-1"><Button variant="glow" size="sm" className="w-full"><Video className="w-4 h-4 mr-1" />Video</Button></Link>
-                  <Link to="/appointments" className="flex-1"><Button variant="gold" size="sm" className="w-full"><Calendar className="w-4 h-4 mr-1" />Book</Button></Link>
+                  <Link to="/teleconsultation" className="flex-1">
+                    <Button variant="glow" size="sm" className="w-full"><Video className="w-4 h-4 mr-1" />Video</Button>
+                  </Link>
+                  <Link to="/appointments" className="flex-1">
+                    <Button variant="gold" size="sm" className="w-full"><Calendar className="w-4 h-4 mr-1" />Book</Button>
+                  </Link>
+                  <Link to={`/payment?amount=${doctor.price}&service=${encodeURIComponent(doctor.name + ' - ' + doctor.specialty)}`} className="flex-1">
+                    <Button variant="default" size="sm" className="w-full"><CreditCard className="w-4 h-4 mr-1" />Pay</Button>
+                  </Link>
                 </div>
               </motion.div>
             ))}

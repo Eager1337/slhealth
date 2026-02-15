@@ -14,16 +14,366 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      appointments: {
+        Row: {
+          appointment_date: string
+          appointment_time: string
+          created_at: string
+          doctor_name: string
+          id: string
+          notes: string | null
+          specialty: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          appointment_date: string
+          appointment_time: string
+          created_at?: string
+          doctor_name: string
+          id?: string
+          notes?: string | null
+          specialty: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          appointment_date?: string
+          appointment_time?: string
+          created_at?: string
+          doctor_name?: string
+          id?: string
+          notes?: string | null
+          specialty?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      community_events: {
+        Row: {
+          category: string | null
+          created_at: string
+          description: string | null
+          event_date: string
+          event_time: string | null
+          id: string
+          image_url: string | null
+          location: string
+          organizer: string | null
+          title: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          description?: string | null
+          event_date: string
+          event_time?: string | null
+          id?: string
+          image_url?: string | null
+          location: string
+          organizer?: string | null
+          title: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          description?: string | null
+          event_date?: string
+          event_time?: string | null
+          id?: string
+          image_url?: string | null
+          location?: string
+          organizer?: string | null
+          title?: string
+        }
+        Relationships: []
+      }
+      health_records: {
+        Row: {
+          attachments: string[] | null
+          created_at: string
+          description: string | null
+          doctor_name: string | null
+          id: string
+          record_date: string
+          record_type: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          attachments?: string[] | null
+          created_at?: string
+          description?: string | null
+          doctor_name?: string | null
+          id?: string
+          record_date?: string
+          record_type: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          attachments?: string[] | null
+          created_at?: string
+          description?: string | null
+          doctor_name?: string | null
+          id?: string
+          record_date?: string
+          record_type?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      health_vitals: {
+        Row: {
+          id: string
+          recorded_at: string
+          unit: string
+          user_id: string
+          value: number
+          vital_type: string
+        }
+        Insert: {
+          id?: string
+          recorded_at?: string
+          unit: string
+          user_id: string
+          value: number
+          vital_type: string
+        }
+        Update: {
+          id?: string
+          recorded_at?: string
+          unit?: string
+          user_id?: string
+          value?: number
+          vital_type?: string
+        }
+        Relationships: []
+      }
+      medication_reminders: {
+        Row: {
+          created_at: string
+          dosage: string
+          end_date: string | null
+          frequency: string
+          id: string
+          is_active: boolean
+          medication_name: string
+          reminder_time: string
+          start_date: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          dosage: string
+          end_date?: string | null
+          frequency?: string
+          id?: string
+          is_active?: boolean
+          medication_name: string
+          reminder_time: string
+          start_date?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          dosage?: string
+          end_date?: string | null
+          frequency?: string
+          id?: string
+          is_active?: boolean
+          medication_name?: string
+          reminder_time?: string
+          start_date?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      payments: {
+        Row: {
+          amount: number
+          created_at: string
+          currency: string
+          doctor_name: string | null
+          id: string
+          payment_method: string
+          service_type: string
+          status: string
+          transaction_ref: string | null
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          currency?: string
+          doctor_name?: string | null
+          id?: string
+          payment_method: string
+          service_type: string
+          status?: string
+          transaction_ref?: string | null
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          currency?: string
+          doctor_name?: string | null
+          id?: string
+          payment_method?: string
+          service_type?: string
+          status?: string
+          transaction_ref?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          allergies: string[] | null
+          avatar_url: string | null
+          blood_type: string | null
+          created_at: string
+          date_of_birth: string | null
+          emergency_contact: string | null
+          full_name: string
+          gender: string | null
+          id: string
+          location: string | null
+          phone: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          allergies?: string[] | null
+          avatar_url?: string | null
+          blood_type?: string | null
+          created_at?: string
+          date_of_birth?: string | null
+          emergency_contact?: string | null
+          full_name?: string
+          gender?: string | null
+          id?: string
+          location?: string | null
+          phone?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          allergies?: string[] | null
+          avatar_url?: string | null
+          blood_type?: string | null
+          created_at?: string
+          date_of_birth?: string | null
+          emergency_contact?: string | null
+          full_name?: string
+          gender?: string | null
+          id?: string
+          location?: string | null
+          phone?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      symptom_checks: {
+        Row: {
+          ai_recommendation: string | null
+          created_at: string
+          id: string
+          severity: string
+          symptoms: string[]
+          user_id: string
+        }
+        Insert: {
+          ai_recommendation?: string | null
+          created_at?: string
+          id?: string
+          severity?: string
+          symptoms: string[]
+          user_id: string
+        }
+        Update: {
+          ai_recommendation?: string | null
+          created_at?: string
+          id?: string
+          severity?: string
+          symptoms?: string[]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      teleconsultations: {
+        Row: {
+          call_type: string
+          created_at: string
+          doctor_name: string
+          duration_minutes: number | null
+          id: string
+          notes: string | null
+          recording_url: string | null
+          status: string
+          user_id: string
+        }
+        Insert: {
+          call_type?: string
+          created_at?: string
+          doctor_name: string
+          duration_minutes?: number | null
+          id?: string
+          notes?: string | null
+          recording_url?: string | null
+          status?: string
+          user_id: string
+        }
+        Update: {
+          call_type?: string
+          created_at?: string
+          doctor_name?: string
+          duration_minutes?: number | null
+          id?: string
+          notes?: string | null
+          recording_url?: string | null
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "patient" | "doctor"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +500,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "patient", "doctor"],
+    },
   },
 } as const
